@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Login from './pages/Login';
+import Permissions from './pages/Permissions';
+import Profile from './pages/Profile';
+import Dashboard from './pages/Dashboard';
+import './index.css';
 
 function App() {
+  const [screen, setScreen] = useState('login');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {screen === 'login' && <Login onLogin={() => setScreen('permissions')} />}
+      {screen === 'permissions' && <Permissions onComplete={() => setScreen('profile')} />}
+      {screen === 'profile' && <Profile onComplete={() => setScreen('dashboard')} />}
+      {screen === 'dashboard' && <Dashboard />}
     </div>
   );
 }
