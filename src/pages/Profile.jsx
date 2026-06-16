@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { saveUserToBackend, saveUser } from '../services/authService';
 
 function Profile({ onComplete }) {
   const [form, setForm] = useState({
     name: '', age: '', gender: '', email: '',
-    location: '', blood: '',
+    location: '', bloodGroup: '',
     contact1: '', contact2: '', contact3: '', contact4: '', contact5: ''
   });
 
@@ -11,24 +12,30 @@ function Profile({ onComplete }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function saveProfile() {
-    if (!form.name) { alert('Please enter your name'); return; }
-    localStorage.setItem('kavach_user', JSON.stringify(form));
-    onComplete();
+  async function saveProfile() {
+  if (!form.name) { alert('Please enter your name'); return; }
+  saveUser(form);
+  try {
+    await saveUserToBackend(form);
+    console.log('User saved to backend!');
+  } catch (err) {
+    console.log('Backend not available, saved locally');
   }
+  onComplete();
+}
 
   return (
     <div className="modal-overlay" style={{ display: 'flex' }}>
       <div className="form-container">
         <div className="form-header">
-          <div className="form-icon">🌸👤</div>
+          <div className="form-icon">👤</div>
           <h2>Complete Your Profile</h2>
           <p>This information helps us protect you better</p>
         </div>
 
         <div className="form-body">
           <div className="form-group">
-            <label>✨ Full Name</label>
+            <label> Full Name</label>
             <input name="name" value={form.name} onChange={handleChange} placeholder="Enter your full name" />
           </div>
 
@@ -60,7 +67,7 @@ function Profile({ onComplete }) {
 
           <div className="form-group">
             <label>🩸 Blood Group</label>
-            <select name="blood" value={form.blood} onChange={handleChange}>
+            <select name="bloodGroup" value={form.bloodGroup} onChange={handleChange}>
               <option value="">Select</option>
               <option>A+</option><option>A-</option>
               <option>B+</option><option>B-</option>
