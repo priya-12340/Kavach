@@ -77,12 +77,12 @@ function Profile({ onComplete }) {
           </div>
 
           <div className="form-group">
-            <label>👨‍👩 Contact 1 (Primary)</label>
+            <label>👥 Contact 1 (Primary)</label>
             <input type="tel" name="contact1" value={form.contact1} onChange={handleChange} placeholder="Name - Phone" />
           </div>
 
           <div className="form-group">
-            <label>👫 Contact 2</label>
+            <label>👥 Contact 2</label>
             <input type="tel" name="contact2" value={form.contact2} onChange={handleChange} placeholder="Name - Phone" />
           </div>
 
@@ -92,7 +92,7 @@ function Profile({ onComplete }) {
           </div>
 
           <button className="btn" onClick={saveProfile}>
-            Save & Continue 🛡️
+            Save & Continue 
           </button>
         </div>
       </div>

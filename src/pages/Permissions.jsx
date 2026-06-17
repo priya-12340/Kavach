@@ -60,7 +60,7 @@ function Permissions({ onComplete }) {
     },
   ];
 
-  return (
+  return ( 
     <div style={{
       minHeight: '100vh', background: 'linear-gradient(135deg, #fff5f5, #ffe0e0)',
       display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
@@ -71,7 +71,10 @@ function Permissions({ onComplete }) {
         boxShadow: '0 20px 50px rgba(255,140,140,0.2)'
       }}>
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-          <div style={{ fontSize: '50px', marginBottom: '10px' }}>🛡️</div>
+          <div>
+            <img src="/Images/kavachLogo.png" alt="logo" className='permissions-logo' />
+            
+          </div>
           <div style={{ fontSize: '22px', fontWeight: '700', color: '#d47a7a', marginBottom: '8px' }}>
             Allow Permissions
           </div>

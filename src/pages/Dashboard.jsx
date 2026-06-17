@@ -60,16 +60,30 @@ function Dashboard() {
     return () => clearInterval(interval);
   }, []);
 
-    useEffect(() => {
-  if (activeTab === 'journey') { setShowSafeJourney(true); setActiveTab('home'); }
-  if (activeTab === 'report') { setShowReport(true); setActiveTab('home'); }
-  if (activeTab === 'helplines') { setShowHelplines(true); setActiveTab('home'); }
-  if (activeTab === 'profile') { setShowProfile(true); setActiveTab('home'); }
-}, [activeTab]);
-
+  useEffect(() => {
+    if (activeTab === "journey") {
+      setShowSafeJourney(true);
+      setActiveTab("home");
+    }
+    if (activeTab === "report") {
+      setShowReport(true);
+      setActiveTab("home");
+    }
+    if (activeTab === "helplines") {
+      setShowHelplines(true);
+      setActiveTab("home");
+    }
+    if (activeTab === "profile") {
+      setShowProfile(true);
+      setActiveTab("home");
+    }
+  }, [activeTab]);
 
   return (
-    <div className="dashboard" style={{ display: "block", paddingBottom: '80px' }}>
+    <div
+      className="dashboard"
+      style={{ display: "block", paddingBottom: "80px" }}
+    >
       {/* TOP NAV */}
       <div
         style={{
@@ -115,12 +129,17 @@ function Dashboard() {
 
       {/* GREETING CARD */}
       <div className="greeting-card">
-        <div className="greeting-text">{greeting}</div>
-        <div className="user-name-greeting">{userName} 🌸</div>
-        <div className="date-time">
-          <span>{dateStr}</span>
-          <span>{timeStr}</span>
+        <div className="greeting-left">
+          <div className="greeting-text">{greeting}</div>
+          <div className="user-name-greeting">{userName}</div>
+          <div className="date-time">
+            <span>{dateStr}</span>
+            <span>{timeStr}</span>
+          </div>
         </div>
+       
+       <img src="/Images/kavachLogo.png" alt="logo" className="greeting-logo" />
+
       </div>
 
       {/* STATUS BAR */}
@@ -170,8 +189,7 @@ function Dashboard() {
         <SafeJourney onClose={() => setShowSafeJourney(false)} />
       )}
       <BottomNav active={activeTab} onChange={setActiveTab} />
-      
-    
+
       {showVoice && (
         <VoiceActivation
           onClose={() => setShowVoice(false)}

@@ -15,8 +15,8 @@
         /* Login Screen */
         .login-container {
             max-width: 380px;
-            margin: 60px auto;
-            padding: 40px 30px;
+            margin: 20px auto;
+            padding: 20px 30px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 40px;
             text-align: center;
@@ -24,7 +24,20 @@
             border: 1px solid rgba(255, 200, 200, 0.5);
         }
         
-        .logo { font-size: 56px; margin-bottom: 10px; }
+        .logo{
+            background: none;
+            box-shadow: none;
+            border: none;
+             margin: 0 auto 0px;
+            height: 150px;
+            width: 150px;
+           
+        }
+        .logo img{
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
         .logo-text { font-size: 32px; font-weight: 600; background: linear-gradient(135deg, #e8a0a0, #d47a7a); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 8px; }
         .tagline { color: #c28a8a; font-size: 14px; margin-bottom: 30px; }
         .input-group { margin: 20px 0; }
@@ -87,6 +100,25 @@
             margin: 10px 0 15px 0;
             color: white;
             box-shadow: 0 8px 20px rgba(212, 122, 122, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .greeting-left{
+            flex: 1;
+        }
+        .greeting-logo{
+            width: 170px;
+            height: 170px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            position: absolute;
+            left: 68%;
+            top: 50%;
+            transform: translateY(-50%);
+
         }
         
         .greeting-text {
@@ -551,9 +583,15 @@
             margin-top: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
+
+        .permissions-logo{
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
         
         .permissions-title { text-align: center; margin-bottom: 25px; }
-        .permissions-title .icon { font-size: 50px; margin-bottom: 10px; }
+        .permissions-title .icon img { font-size: 50px; margin-bottom: 10px; }
         .permissions-title h2 { color: #d47a7a; font-size: 22px; }
         
         .permission-item {

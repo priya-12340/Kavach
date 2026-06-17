@@ -24,7 +24,9 @@ async function handleVerifyOTP() {
 
   return (
     <div className="login-container">
-      <div className="logo">🛡️</div>
+      <div className="logo">
+        <img src="/Images/kavachLogo.png" alt="logo"/>
+      </div>
       <div className="logo-text">Kavach</div>
       <div className="tagline">Your Safety, Our Priority</div>
 
